@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lidocaine-ai"
+version = "0.1.0"
+description = "AI-powered smart contract threat detection"
+authors = [
+    {name = "LidocaineAI Team", email = "security@lidocaine.ai"}
+]
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Security",
+    "Programming Language :: Python :: 3.8",
+]
+
+[project.urls]
+Homepage = "https://github.com/LidocaineAI/LidocaineAI"
+Documentation = "https://lidocaine.ai/docs"
+
+[project.scripts]
+lidocaine-scan = "core.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["core*"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "brownie>=1.19",
+    "mypy>=1.0"
+]
+solana = [
+    "solana-py>=0.25",
+    "anchorpy>=0.12"
+]
